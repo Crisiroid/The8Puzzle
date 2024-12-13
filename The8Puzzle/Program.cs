@@ -17,6 +17,7 @@ class Program
             { 4, 5, 6 },
             { 7, 8, 0 }
         };
+        Console.WriteLine("__________________________A*__________________________");
 
         var solver = new AStarSolver(startState, goalState);
         var solution = solver.Solve();
@@ -25,6 +26,24 @@ class Program
         {
             Console.WriteLine("Solution found!");
             foreach (var state in solution)
+            {
+                PrintState(state);
+                Console.WriteLine();
+            }
+        }
+        else
+        {
+            Console.WriteLine("No solution found.");
+        }
+
+        Console.WriteLine("_________________________IDA*_________________________");
+        var IDAsolver = new IDAStarSolver(startState, goalState);
+        var IDAsolution = solver.Solve();
+
+        if (IDAsolution != null)
+        {
+            Console.WriteLine("Solution found!");
+            foreach (var state in IDAsolution)
             {
                 PrintState(state);
                 Console.WriteLine();
